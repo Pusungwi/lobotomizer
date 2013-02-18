@@ -14,9 +14,15 @@ import lobotomize
 
 lobotomizerApp = Flask(__name__)
 
-@lobotomizerApp.route('/make/<targetWord>')
+@lobotomizerApp.route('/pic/<targetWord>')
 def makeLobotomyProfileFromWord(targetWord):
-	outputImage = lobotomize.createLobotomyProfileByWord("targetWord", 500)
+	#output from PIL Image
+	outputImage = lobotomize.createLobotomyProfileByWord(targetWord, 500)
+	
+	#DEBUG CODE
+	#outputImage.save("output.png", "PNG")
+	
+	return 'Succeed!'
 
 @lobotomizerApp.route('/')
 def hello_world():
